@@ -1,0 +1,26 @@
+{
+  "name": "embark-ast",
+  "version": "1.0.0",
+  "description": "Embark AST plugin",
+  "main": "index.js",
+  "keywords": [
+    "blockchain",
+    "dapps",
+    "ethereum",
+    "solc",
+    "solidity",
+    "slither"
+  ],
+  "author": "Rajeev Gopalakrishna",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/embark-framework/embark-solc/issues"
+  },
+  "homepage": "https://embark.status.im/",
+  "dependencies": {
+    "fs-extra": "^7.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0"
+  }
+}
