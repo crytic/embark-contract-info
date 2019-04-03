@@ -29,7 +29,14 @@ Add embark-contract-info to the plugins section in ```embark.json```:
   }
 ```
 
-Embark will now generate AST|ABI|bytecode containing file in `embark.contractInfo.json` after each compilation.
+Embark will now generate `embark.contractInfo.json` after each compilation.
+The file structure is:
+```json
+{
+    "asts": [],
+    "contracts-info": []
+}
+```
 
 Requirements
 ============
