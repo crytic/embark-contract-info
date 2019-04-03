@@ -1,7 +1,7 @@
 {
-  "name": "embark-ast",
+  "name": "embark-contract-info",
   "version": "1.0.0",
-  "description": "Embark AST plugin",
+  "description": "Embark Contract Information plugin",
   "main": "index.js",
   "keywords": [
     "blockchain",

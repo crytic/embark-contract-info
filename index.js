@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 
-function buildContractData(embark) {
+function buildContractInfo(embark) {
     const sources = embark.sources;
     const contracts = embark.contracts;
     const data1 = Object.keys(sources).map((key) => {
@@ -13,11 +13,11 @@ function buildContractData(embark) {
 }
 
 async function run(embark, compilationResult) {
-    const contractDataFile = "embark.contractData.json";
-    const contractData = buildContractData(compilationResult);
-    fs.openSync(contractDataFile, 'w');
-    fs.writeFileSync(contractDataFile, contractData);
-    fs.closeSync(contractDataFile);
+    const contractInfoFile = "embark.contractInfo.json";
+    const contractInfo = buildContractInfo(compilationResult);
+    fs.openSync(contractInfoFile, 'w');
+    fs.writeFileSync(contractInfoFile, contractInfo);
+    fs.closeSync(contractInfoFile);
 }
 
 function register(embark) {
