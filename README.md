@@ -1,7 +1,7 @@
 Embark-AST
 ======
 
-Plugin for [Embark](https://github.com/embark-framework/embark) to generate AST files (for analyzing solidity source with [slither](https://github.com/trailofbits/slither) or other uses)
+Plugin for [Embark](https://github.com/embark-framework/embark) to generate AST|ABI|Bytecode containing file (for analyzing solidity source with [slither](https://github.com/trailofbits/slither) or other uses)
 
 Installation
 ======
@@ -24,7 +24,7 @@ then add embark-ast to the plugins section in ```embark.json```:
   }
 ```
 
-Embark will now generate AST files in embark.ast.json after each compilation.
+Embark will now generate AST|ABI|bytecode containing file in embark.contractData.json after each compilation.
 
 Requirements
 ======

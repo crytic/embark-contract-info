@@ -14,7 +14,7 @@
   "author": "Rajeev Gopalakrishna",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/embark-framework/embark-solc/issues"
+    "url": "https://github.com/crytic/slither/issues"
   },
   "homepage": "https://embark.status.im/",
   "dependencies": {
