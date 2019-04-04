@@ -11,10 +11,10 @@
     "solidity",
     "slither"
   ],
-  "author": "Rajeev Gopalakrishna",
+  "author": "Trail of Bits",
   "license": "AGPL v3",
   "bugs": {
-    "url": "https://github.com/crytic/slither/issues"
+    "url": "https://github.com/crytic/embark-contract-info/issues"
   },
   "homepage": "https://embark.status.im/",
   "dependencies": {

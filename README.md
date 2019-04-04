@@ -29,7 +29,7 @@ Add embark-contract-info to the plugins section in ```embark.json```:
   }
 ```
 
-Embark will now generate `embark.contractInfo.json` after each compilation.
+Embark will now generate `crytic-export/contracts.json` after each compilation.
 The file structure is:
 ```json
 {

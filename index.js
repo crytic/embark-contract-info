@@ -1,5 +1,5 @@
 const fs = require("fs-extra");
-
+const path = require('path');
 
 function buildContractInfo(compilationResult) {
     const sources = compilationResult.sources;
@@ -25,7 +25,11 @@ function buildContractInfo(compilationResult) {
 }
 
 async function run(embark, compilationResult) {
-    const contractInfoFile = "embark.contractInfo.json";
+    const dir = "crytic-export"
+    if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir);
+    }
+    const contractInfoFile = path.join(dir, "contracts.json");
     const contractInfo = buildContractInfo(compilationResult);
     var fd = fs.openSync(contractInfoFile, 'w');
     fs.writeSync(fd, contractInfo);
