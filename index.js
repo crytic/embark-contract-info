@@ -1,5 +1,5 @@
 const fs = require("fs-extra");
-const path = require('path');
+const path = require("path");
 
 function buildContractInfo(compilationResult) {
     const sources = compilationResult.sources;
