@@ -4,7 +4,7 @@ const path = require("path");
 function buildContractInfo(compilationResult) {
     const sources = compilationResult.sources;
     const keys_sources =  Object.keys(sources)
-    // embark might have dupplicate source and contracts
+    // embark might have duplicate source and contracts
     // so we removed all the elements that are from the modules
     const keys_sources_filtered = keys_sources.filter(function(key){ 
         return ! key.startsWith("node_modules"); 
