@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/crytic/embark-contract-info/issues"
   },
-  "homepage": "https://embark.status.im/",
+  "homepage": "https://github.com/crytic/embark-contract-info",
   "dependencies": {
     "fs-extra": "^7.0.1"
   },
