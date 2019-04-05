@@ -10,11 +10,11 @@ Installation
 
 Globally: 
 
-```npm -g install embark-contract-info```
+```npm -g install @trailofbits/embark-contract-info```
 
 Or locally, from your embark dapp directory:
 
-```npm install embark-contract-info --save```
+```npm install @trailofbits/embark-contract-info --save```
 
 Usage
 =====
