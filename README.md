@@ -23,7 +23,7 @@ Add embark-contract-info to the plugins section in ```embark.json```:
 
 ```Json
   "plugins": {
-    "embark-contract-info": {
+    "@trailofbits/embark-contract-info": {
       "flags": ""
     }
   }
