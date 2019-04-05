@@ -19,7 +19,7 @@ Or locally, from your embark dapp directory:
 Usage
 =====
 
-Add embark-contract-info to the plugins section in ```embark.json```:
+Add `@trailofbits/embark-contract-info` to the plugins section in ```embark.json```:
 
 ```Json
   "plugins": {
