@@ -25,9 +25,10 @@ function buildContractInfo(compilationResult) {
     keys_contracts_filtered.map((key) => {
         Object.keys(contracts[key]).map((contract_name) =>
             {
-                runtime_bytecode_info_[contract_name] = contracts[key][contract_name].evm.deployedBytecode.object;
-                bytecode_info_[contract_name] = contracts[key][contract_name].evm.bytecode.object;
-                abi_info_[contract_name] = contracts[key][contract_name].abi;
+                var name = key+":"+contract_name
+                runtime_bytecode_info_[name] = contracts[key][contract_name].evm.deployedBytecode.object;
+                bytecode_info_[name] = contracts[key][contract_name].evm.bytecode.object;
+                abi_info_[name] = contracts[key][contract_name].abi;
             })
     });
     const runtime_bytecode_info = `${JSON.stringify(runtime_bytecode_info_, null, 2)}`;
@@ -35,8 +36,8 @@ function buildContractInfo(compilationResult) {
     const abi_info = `${JSON.stringify(abi_info_, null, 2)}`;
     return '{\n' +
             '\"asts\":[' + asts.join("\n,") + '],\n' +
-            '\"abi\":' + abi_info +
-            '\"init_bytecode\":' + bytecode_info +
+            '\"abi\":' + abi_info + ",\n" +
+            '\"init_bytecode\":' + bytecode_info+ ",\n" +
             '\"runtime_bytecode\":' + runtime_bytecode_info +
             '\n}';
 }
