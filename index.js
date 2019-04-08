@@ -38,9 +38,9 @@ function buildContractInfo(compilationResult) {
     const abi_info = `${JSON.stringify(abi_info_, null, 2)}`;
     return '{\n' +
             '\"asts\":' + asts + ',\n' +
-            '\"abi\":' + abi_info + ",\n" +
-            '\"init_bytecode\":' + bytecode_info+ ",\n" +
-            '\"runtime_bytecode\":' + runtime_bytecode_info +
+            '\"abis\":' + abi_info + ",\n" +
+            '\"init_bytecodes\":' + bytecode_info+ ",\n" +
+            '\"runtime_bytecodes\":' + runtime_bytecode_info +
             '\n}';
 }
 
