@@ -9,8 +9,9 @@ function buildContractInfo(compilationResult) {
     const keys_sources_filtered = keys_sources.filter(function(key){ 
         return ! key.startsWith("node_modules"); 
     }); 
-    const asts = keys_sources_filtered.map((key) => {
-	    return `${JSON.stringify(sources[key].ast, null, 2)}`;
+    asts_ = {}
+    keys_sources_filtered.map((key) => {
+        asts_[key] = sources[key].ast
     });
 
     const contracts = compilationResult.contracts;
@@ -31,11 +32,12 @@ function buildContractInfo(compilationResult) {
                 abi_info_[name] = contracts[key][contract_name].abi;
             })
     });
+    const asts = `${JSON.stringify(asts_, null, 2)}`;
     const runtime_bytecode_info = `${JSON.stringify(runtime_bytecode_info_, null, 2)}`;
     const bytecode_info = `${JSON.stringify(bytecode_info_, null, 2)}`;
     const abi_info = `${JSON.stringify(abi_info_, null, 2)}`;
     return '{\n' +
-            '\"asts\":[' + asts.join("\n,") + '],\n' +
+            '\"asts\":' + asts + ',\n' +
             '\"abi\":' + abi_info + ",\n" +
             '\"init_bytecode\":' + bytecode_info+ ",\n" +
             '\"runtime_bytecode\":' + runtime_bytecode_info +
