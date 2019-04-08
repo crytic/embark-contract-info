@@ -34,7 +34,9 @@ The file structure is:
 ```json
 {
     "asts": [],
-    "contracts-info": []
+    "abi": [{"contract_name":...}]
+    "init_bytecode": [{"contract_name":...}]
+    "runtime_bytecode": [{"contract_name":...}]
 }
 ```
 
