@@ -28,7 +28,9 @@ function buildContractInfo(compilationResult) {
                 contracts_info_[name] = {
                     "bin-runtime": contracts[key][contract_name].evm.deployedBytecode.object,
                     "bin":  contracts[key][contract_name].evm.bytecode.object,
-                    "abi": contracts[key][contract_name].abi
+                    "abi": contracts[key][contract_name].abi,
+                    "srcmap": contracts[key][contract_name].evm.bytecode.sourceMap,
+                    "srcmap-runtime": contracts[key][contract_name].evm.deployedBytecode.sourceMap,
                 }
             })
     });
