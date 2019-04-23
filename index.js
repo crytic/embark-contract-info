@@ -47,7 +47,7 @@ async function run(embark, compilationResult) {
     if (!fs.existsSync(dir)){
         fs.mkdirSync(dir);
     }
-    const contractInfoFile = path.join(dir, "contracts.json");
+    const contractInfoFile = path.join(dir, "contracts-embark.json");
     const contractInfo = buildContractInfo(compilationResult);
     var fd = fs.openSync(contractInfoFile, 'w');
     fs.writeSync(fd, contractInfo);
