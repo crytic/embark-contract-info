@@ -9,8 +9,9 @@ function buildContractInfo(compilationResult) {
     const keys_sources_filtered = keys_sources.filter(function(key){ 
         return ! key.startsWith("node_modules"); 
     }); 
-    const asts = keys_sources_filtered.map((key) => {
-	    return `${JSON.stringify(sources[key].ast, null, 2)}`;
+    asts_ = {}
+    keys_sources_filtered.map((key) => {
+        asts_[key] = sources[key].ast
     });
 
     const contracts = compilationResult.contracts;
@@ -18,10 +19,27 @@ function buildContractInfo(compilationResult) {
     const keys_contracts_filtered = keys_contracts.filter(function(key){ 
         return ! key.startsWith("node_modules"); 
     }); 
-    const contracts_info = keys_contracts_filtered.map((key) => {
-	    return `${JSON.stringify(contracts[key], null, 2)}`;
+
+    var contracts_info_ = {}
+    keys_contracts_filtered.map((key) => {
+        Object.keys(contracts[key]).map((contract_name) =>
+            {
+                var name = key+":"+contract_name
+                contracts_info_[name] = {
+                    "bin-runtime": contracts[key][contract_name].evm.deployedBytecode.object,
+                    "bin":  contracts[key][contract_name].evm.bytecode.object,
+                    "abi": contracts[key][contract_name].abi,
+                    "srcmap": contracts[key][contract_name].evm.bytecode.sourceMap,
+                    "srcmap-runtime": contracts[key][contract_name].evm.deployedBytecode.sourceMap,
+                }
+            })
     });
-    return '{\n' + '\"asts\":[' + asts.join("\n,") + '],\n' + '\"contracts-info\":[' + contracts_info.join("\n,") + ']\n}';
+    const asts = `${JSON.stringify(asts_, null, 2)}`;
+    const contracts_info = `${JSON.stringify(contracts_info_, null, 2)}`;
+    return '{\n' +
+            '\"asts\":' + asts + ',\n' +
+            '\"contracts\":' + contracts_info + "\n" +
+            '\n}';
 }
 
 async function run(embark, compilationResult) {
@@ -29,7 +47,7 @@ async function run(embark, compilationResult) {
     if (!fs.existsSync(dir)){
         fs.mkdirSync(dir);
     }
-    const contractInfoFile = path.join(dir, "contracts.json");
+    const contractInfoFile = path.join(dir, "contracts-embark.json");
     const contractInfo = buildContractInfo(compilationResult);
     var fd = fs.openSync(contractInfoFile, 'w');
     fs.writeSync(fd, contractInfo);
